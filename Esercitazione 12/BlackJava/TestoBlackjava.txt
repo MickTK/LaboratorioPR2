@@ -1,0 +1,31 @@
+Modellare un programma chiamato Blackjava che consente di giocare una partita a blackjack (https://it.wikipedia.org/wiki/Blackjack).
+
+Partecipanti (Facile)
+Il programma supporta due partecipanti chiamati "banco" e "giocatore" (non è necessario gestire partite con più giocatori). 
+
+In ogni partita Blackjava deve consentire di configurare i ruoli di giocatore e banco: ciascuno può essere gestito da un giocatore umano oppure dal pc. Sarà quindi possibile giocare contro il pc, solo tra umani, oppure assistere a una partita tra due pc.
+
+Ogni partecipante, anche se è gestito dal pc, ha un nome inserito in input a inizio partita e un punteggio caricato automaticamente dalla classifica in base ai risultati delle partite precedenti (vedi Classifica).
+
+Obiettivo (Facile)
+Il giocatore vince se realizza un punteggio più alto del banco e non superiore a 21.
+
+Carte (Medio)
+Il gioco utilizza 2 mazzi di carte francesi, per un totale di 104 carte. Comunemente, nel blackjack l'asso può valere 11 o 1,  tuttavia in Blackjava l’asso vale sempre solo 1. Il valore delle altre carte rispetta le regole del blackjack: le figure valgono 10 e le carte rimanenti valgono il loro valore nominale. I semi non hanno alcuna influenza, o valore. La somma dei punti, al fine del calcolo del punteggio, avviene per semplice somma aritmetica.
+
+Svolgimento del gioco (Medio)
+Blackjava non gestisce puntate.
+
+Il banco assegna una carta scoperta al giocatore e una a se stesso. Effettua poi un secondo giro di carte scoperte, senza però attribuire una carta a se stesso. Avvenuta la distribuzione, il giocatore può fare il proprio gioco: può chiedere carta o stare, a propria discrezione. Il giocatore può chiedere carta più volte. Se il giocatore supera il 21 perde. Una volta che il giocatore ha terminato il banco sviluppa il suo gioco seguendo la "regola del banco": egli deve chiedere carta solo se ha un punteggio inferiore a 17. Una volta ottenuto o superato 17 si deve fermare. Se oltrepassa il 21 il banco perde.
+
+Se nessuno dei due giocatori ha superato il 21 vince chi ha fatto il punteggio più alto. Se entrambi hanno raggiunto lo stesso punteggio la partita termina in parità.
+
+Classifica (Difficile)
+Blackjava utilizza un file locale per memorizzare la classifica dei punteggi dei partecipanti. Ogni giocatore della classifica è identificato dal nome inserito a inizio partita. Anche chi gioca come banco (umano o pc) ha un nome e un punteggio. 
+
+Il punteggio: aumenta di 1 in caso di vittoria, diminuisce di 1 in caso di sconfitta, aumenta di 0,5 in caso di pareggio.
+
+Al termine di ogni partita il programma svolge le seguenti azioni. 1) Carica il file dei punteggi. 2) Aggiorna la classifica considerando i risultati della partita appena terminata: se il nome di un partecipante attuale è già presente in classifica il suo punteggio ed eventualmente la sua posizione sono aggiornati; altrimenti viene aggiunta una nuova riga con il suo nuovo punteggio. 
+3) Viene stampata a video la classifica. 4) La classifica aggiornata e ordinata in base al punteggio viene salvata su file.
+
+NB: i punteggi dei giocatori possono essere negativi.
